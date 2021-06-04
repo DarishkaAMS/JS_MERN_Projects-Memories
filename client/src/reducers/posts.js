@@ -6,5 +6,7 @@ export default (posts = [], action) => {
             return [...posts, action.payload];
         default:
             return posts;
+        case 'UPDATE':
+            return posts.map((post) => post._id === action.payload._id ? action.payload : post);
     }
 }

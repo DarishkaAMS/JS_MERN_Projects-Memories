@@ -15,6 +15,10 @@ app.use(cors());
 
 app.use('/posts', postRoutes);
 
+app.get('/', (req, res) => {
+  res.send('Hello to DarishkaAMS Memories API');
+});
+
 // const CONNECTION_URL = 'CONNECTION_URL';
 const PORT = process.env.PORT|| 5000;
 

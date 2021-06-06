@@ -15,12 +15,12 @@ app.use(cors());
 
 app.use('/posts', postRoutes);
 
-app.use('/', postRoutes);
+app.get('/', postRoutes);
 // app.get('/', (req, res) => {
 //   res.send('Hello to DarishkaAMS Memories API');
 // });
 
-// const CONNECTION_URL = 'CONNECTION_URL';
+const CONNECTION_URL = 'CONNECTION_URL';
 const PORT = process.env.PORT || 5000;
 
 mongoose.connect(process.env.CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true })

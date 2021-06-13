@@ -12,6 +12,11 @@ const Navbar = () => {
 
     console.log("USER", user);
 
+    useEffect(()=> {
+        const token = user?.token;
+        setUser(JSON.parse(localStorage.getItem('profile')));
+    }, []);
+
     return (
         <AppBar className={classes.appBar} position="static" color="inherit">
             <div className={classes.brandContainer}>

@@ -2,16 +2,18 @@ import React, { useState } from 'react';
 import { Avatar, Button, Container, Grid, Paper, TextField, Typography } from '@material-ui/core';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined'
 import { GoogleLogin } from 'react-google-login';
+import { useDispatch } from 'react-redux';
 
 import Icon from './icon';
 import Input from './Input.js';
 import useStyles from './styles.js';
-
+import { AUTH } from '../../constants/actionTypes';
 
 const Auth = () => {
     const classes = useStyles();
-    const [showPassword, setshowPassword] = useState(false);
+    const [showPassword, setShowPassword] = useState(false);
     const [isSignup, setIsSignup] = useState(false);
+    const dispatch = useDispatch();
 
     const handleSubmit = () => {
 
@@ -21,7 +23,7 @@ const Auth = () => {
 
     };
 
-    const handleShowPassword = () => setshowPassword((prevShowPassword) => !prevShowPassword);
+    const handleShowPassword = () => setShowPassword((prevShowPassword) => !prevShowPassword);
 
     const switchMode = () => {
         setIsSignup((prevIsSignup) => !prevIsSignup);
@@ -29,7 +31,14 @@ const Auth = () => {
     };
 
     const googleSuccess = async (res) => {
-        console.log("You are Goole login");
+        const result = res?.profileObj;
+        const token = res?.tokenId;
+
+        try {
+            dispatch({ type: AUTH, data: { result, token } });
+        } catch (error) {
+            console.log(error);
+        }
     };
 
     const googleFailure = (error) => {

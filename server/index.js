@@ -18,7 +18,8 @@ app.use("/user", userRouter);
 //   res.send('Hello to DarishkaAMS Memories API');
 // });
 
-const CONNECTION_URL = 'CONNECTION_URL';
+const CONNECTION_URL = 'mongodb+srv://DarishkaAMS:F1_Junemoon_2013@cluster0.dwg55.mongodb.net/myFirstDatabase?retryWrites=true&w=majority' // 'CONNECTION_URL';
+
 const PORT = process.env.PORT|| 5000;
 
 mongoose.connect(CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true })

@@ -14,9 +14,9 @@ app.use(cors());
 
 app.use('/posts', postRoutes);
 app.use("/user", userRouter);
-// app.get('/', (req, res) => {`
-//   res.send('Hello to DarishkaAMS Memories API');
-// });
+app.get('/', (req, res) => {`
+  res.send('Hello to DarishkaAMS Memories API');
+});
 
 const CONNECTION_URL = 'mongodb+srv://DarishkaAMS:F1_Junemoon_2013@cluster0.dwg55.mongodb.net/myFirstDatabase?retryWrites=true&w=majority' // 'CONNECTION_URL';
 

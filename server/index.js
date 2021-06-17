@@ -18,7 +18,7 @@ app.get('/', (req, res) => {
   res.send('Hello to DarishkaAMS Memories API');
 });
 
-const CONNECTION_URL = 'CONNECTION_URL';
+const CONNECTION_URL = 'mongodb+srv://DarishkaAMS:F1_Junemoon_2013@cluster0.dwg55.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
 
 const PORT = process.env.PORT|| 5000;
 
